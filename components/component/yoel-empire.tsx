@@ -133,43 +133,46 @@ export default function Component() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-[#1C1C1C] rounded-3xl p-6">
           <form action="/api/contact" method="post" className="space-y-4">
-              <div>
-                <label className="block text-gray-400 font-medium mb-2" htmlFor="name">
-                  Nombre
-                </label>
-                <input
-                  className="bg-[#2C2C2C] rounded-lg px-4 py-3 w-full text-white focus:outline-none focus:ring-2 focus:ring-[#00C2FF]"
-                  id="name"
-                  type="text"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-400 font-medium mb-2" htmlFor="email">
-                  Email
-                </label>
-                <input
-                  className="bg-[#2C2C2C] rounded-lg px-4 py-3 w-full text-white focus:outline-none focus:ring-2 focus:ring-[#00C2FF]"
-                  id="email"
-                  type="email"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-400 font-medium mb-2" htmlFor="message">
-                  Mensaje
-                </label>
-                <textarea
-                  className="bg-[#2C2C2C] rounded-lg px-4 py-3 w-full text-white focus:outline-none focus:ring-2 focus:ring-[#00C2FF]"
-                  id="message"
-                  rows={4}
-                />
-              </div>
-              <button
-                className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-[#00C2FF] text-black font-medium hover:bg-[#00A8E0] transition-colors"
-                type="submit"
-              >
-                Enviar
-              </button>
-            </form>
+  <div>
+    <label className="block text-gray-400 font-medium mb-2" htmlFor="name">
+      Nombre
+    </label>
+    <input
+      className="bg-[#2C2C2C] rounded-lg px-4 py-3 w-full text-white focus:outline-none focus:ring-2 focus:ring-[#00C2FF]"
+      id="name"
+      type="text"
+      name="name" // Agregar el atributo name
+    />
+  </div>
+  <div>
+    <label className="block text-gray-400 font-medium mb-2" htmlFor="email">
+      Email
+    </label>
+    <input
+      className="bg-[#2C2C2C] rounded-lg px-4 py-3 w-full text-white focus:outline-none focus:ring-2 focus:ring-[#00C2FF]"
+      id="email"
+      type="email"
+      name="email" // Agregar el atributo name
+    />
+  </div>
+  <div>
+    <label className="block text-gray-400 font-medium mb-2" htmlFor="message">
+      Mensaje
+    </label>
+    <textarea
+      className="bg-[#2C2C2C] rounded-lg px-4 py-3 w-full text-white focus:outline-none focus:ring-2 focus:ring-[#00C2FF]"
+      id="message"
+      rows={4}
+      name="message" // Agregar el atributo name
+    />
+  </div>
+  <button
+    className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-[#00C2FF] text-black font-medium hover:bg-[#00A8E0] transition-colors"
+    type="submit"
+  >
+    Enviar
+  </button>
+</form>
           </div>
           <div className="bg-[#1C1C1C] rounded-3xl p-6 flex flex-col items-center justify-center space-y-4">
             <h3 className="text-2xl font-bold">Sígueme en</h3>
