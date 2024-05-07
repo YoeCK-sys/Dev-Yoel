@@ -1,4 +1,4 @@
-export default function Component() {
+export default function YoelEmpire() {
   return (
     <div key="1" className="flex flex-col min-h-screen bg-gradient-to-br from-[#0F0F0F] to-[#1C1C1C] text-white">
       <section className="container mx-auto py-20 px-4 md:px-8 lg:py-32">
@@ -132,7 +132,7 @@ export default function Component() {
         <h2 className="text-3xl md:text-4xl font-bold mb-8">Contacto</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-[#1C1C1C] rounded-3xl p-6">
-          <form action="/api/contact" method="post" className="space-y-4">
+          <form method="post" className="space-y-4">
   <div>
     <label className="block text-gray-400 font-medium mb-2" htmlFor="name">
       Nombre

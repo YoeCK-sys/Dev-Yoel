@@ -1,9 +1,10 @@
-import Image from "next/image";
-import  YoelEmpire   from "@/components/component/yoel-empire";
-import ContactForm from "@/components/ContactForm";
+import React, { useState } from 'react';
+import Developer from "@/components/ContactForm";
 
 export default function Home() {
   return (
-   <YoelEmpire></YoelEmpire>
+    <div>
+      <Developer/>
+    </div>
   );
 }
