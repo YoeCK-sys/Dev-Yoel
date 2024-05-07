@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Yoel Dev",
   description: "PORTAFOLIO EN DESARROLLO",
-  icons: "@/app/favicon"
+  icons: ""
 };
 
 export default function RootLayout({
