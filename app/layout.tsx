@@ -5,9 +5,9 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Yoel Dev",
-  description: "PORTAFOLIO EN DESARROLLO",
-  icons: ""
+  title: "Mundo Militar",
+  description: "...",
+  icons: "@"
 };
 
 export default function RootLayout({
