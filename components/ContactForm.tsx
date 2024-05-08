@@ -1,6 +1,8 @@
-'use client'; // Add this line to define the client boundary
+'use client'; 
 
 import { useState } from 'react';
+import Window from '@/components/dialogoo'; // Importar el componente de diálogo
+
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -9,7 +11,7 @@ export default function ContactForm() {
     message: ''
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false); // Nuevo estado para rastrear si el formulario se está enviando
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -22,7 +24,7 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitting(true); // Marcar el formulario como "en proceso de envío"
+    setIsSubmitting(true);
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -42,7 +44,7 @@ export default function ContactForm() {
       console.error('Error submitting form:', error);
       setError('There was an error submitting the form. Please try again later.');
     } finally {
-      setIsSubmitting(false); // Marcar el formulario como "no en proceso de envío" independientemente del resultado
+      setIsSubmitting(false);
     }
   };
 
@@ -180,55 +182,56 @@ export default function ContactForm() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="bg-[#1C1C1C] rounded-3xl p-6">
         <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label className="block text-gray-400 font-medium mb-2" htmlFor="name">
-                Nombre
-              </label>
-              <input
-                className="bg-[#2C2C2C] rounded-lg px-4 py-3 w-full text-white focus:outline-none focus:ring-2 focus:ring-[#00C2FF]"
-                id="name"
-                type="text"
-                name="name" // Agregar el atributo name
-                value={formData.name}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label className="block text-gray-400 font-medium mb-2" htmlFor="email">
-                Email
-              </label>
-              <input
-                className="bg-[#2C2C2C] rounded-lg px-4 py-3 w-full text-white focus:outline-none focus:ring-2 focus:ring-[#00C2FF]"
-                id="email"
-                type="email"
-                name="email" // Agregar el atributo name
-                value={formData.email}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label className="block text-gray-400 font-medium mb-2" htmlFor="message">
-                Mensaje
-              </label>
-              <textarea
-                className="bg-[#2C2C2C] rounded-lg px-4 py-3 w-full text-white focus:outline-none focus:ring-2 focus:ring-[#00C2FF]"
-                id="message"
-                rows={4}
-                name="message" // Agregar el atributo name
-                value={formData.message}
-                onChange={handleChange}
-              />
-            </div>
-            <button
-              className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-[#00C2FF] text-black font-medium hover:bg-[#00A8E0] transition-colors"
-              type="submit"
-              disabled={isSubmitting} // Desactivar el botón si el formulario se está enviando
-            >
-              {isSubmitting ? 'Enviando...' : 'Enviar'} {/* Cambiar el texto del botón según el estado de envío */}
-            </button>
-            {formSubmitted && <p className="text-green-500">¡Se envió correctamente!</p>}
-            {error && <p className="text-red-500">{error}</p>}
-          </form>
+  <div>
+    <label className="block text-gray-400 font-medium mb-2" htmlFor="name">
+      Nombre
+    </label>
+    <input
+      className="bg-[#2C2C2C] rounded-lg px-4 py-3 w-full text-white focus:outline-none focus:ring-2 focus:ring-[#00C2FF]"
+      id="name"
+      type="text"
+      name="name"
+      value={formData.name}
+      onChange={handleChange}
+    />
+  </div>
+  <div>
+    <label className="block text-gray-400 font-medium mb-2" htmlFor="email">
+      Email
+    </label>
+    <input
+      className="bg-[#2C2C2C] rounded-lg px-4 py-3 w-full text-white focus:outline-none focus:ring-2 focus:ring-[#00C2FF]"
+      id="email"
+      type="email"
+      name="email"
+      value={formData.email}
+      onChange={handleChange}
+    />
+  </div>
+  <div>
+    <label className="block text-gray-400 font-medium mb-2" htmlFor="message">
+      Mensaje
+    </label>
+    <textarea
+      className="bg-[#2C2C2C] rounded-lg px-4 py-3 w-full text-white focus:outline-none focus:ring-2 focus:ring-[#00C2FF]"
+      id="message"
+      rows={4}
+      name="message"
+      value={formData.message}
+      onChange={handleChange}
+    />
+  </div>
+  <button
+    className="inline-flex items-center justify-center px-6 py-3 rounded-full bg-[#00C2FF] text-black font-medium hover:bg-[#00A8E0] transition-colors"
+    type="submit"
+    disabled={isSubmitting}
+  >
+    {isSubmitting ? 'Enviando...' : 'Enviar'}
+  </button>
+  {/* Mostrar el diálogo si el formulario se ha enviado */}
+  {formSubmitted && <Window onClose={() => setFormSubmitted(false)} />}
+  {error && <p className="text-red-500">{error}</p>}
+</form>
         </div>
         <div className="bg-[#1C1C1C] rounded-3xl p-6 flex flex-col items-center justify-center space-y-4">
           <h3 className="text-2xl font-bold">Sígueme en</h3>

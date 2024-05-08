@@ -25,7 +25,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
       // Enviar el correo electrónico
       await transporter.sendMail(mailOptions);
-      
+
       // Envío de una respuesta exitosa
       res.status(200).json({ message: 'Mensaje enviado correctamente' });
     } catch (error) {
