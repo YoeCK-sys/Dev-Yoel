@@ -1,9 +1,10 @@
 /**
  * v0 by Vercel.
- * @see https://v0.dev/t/dXzAfQVFQ7c
+ * @see https://v0.dev/t/PHEdR0iAUXO
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
 import Link from "next/link"
+import { Button } from "@/components/ui/button"
 
 export default function Component() {
   return (
@@ -11,7 +12,7 @@ export default function Component() {
       <header className="px-4 lg:px-6 h-14 flex items-center justify-between">
         <Link href="#" className="flex items-center" prefetch={false}>
           <MountainIcon className="h-6 w-6 text-red-500" />
-          <span className="font-bold text-2xl text-red-500">  ARABECS</span>
+          <span className="font-bold text-2xl text-red-500">ARABECS</span>
         </Link>
         <div className="hidden sm:block">
           <nav className="flex gap-4 sm:gap-6">
